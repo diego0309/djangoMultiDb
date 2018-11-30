@@ -89,3 +89,21 @@ def nuevo(request):
         'form': form
     }
     return render(request, 'posts/nuevo.html', context)
+
+
+def deleteSqlite(request, id=None):
+    object = Posts.objects.get(id=id)
+    object.delete()
+    return redirect(index)
+
+
+def deleteMysql(request, id=None):
+    object = Posts.objects.using('ejemplo').get(id=id)
+    object.delete()
+    return redirect(index)
+
+
+def deleteMongo(request, id=None):
+    object = Posts.objects.using('mongo').get(id=id)
+    object.delete()
+    return redirect(index)

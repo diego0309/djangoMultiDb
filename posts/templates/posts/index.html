@@ -4,19 +4,29 @@
 <h3 class="center-align red lighten-3">{{title}}</h3>
 <ul class="collection">
     {% for post in postsMysql %}
-    <li class="collection-item"><a href="/posts/details/mysql/{{post.id}}">{{post.title}}</a></li>
+    <li class="collection-item">
+        <div><a href="/posts/details/mysql/{{post.id}}">{{post.title}}</a><a href="/posts/delete/mysql/{{post.id}}"
+                class="secondary-content"><i class="material-icons">delete</i></a></div>
+    </li>
     {% endfor %}
 </ul>
 <h3 class="center-align red lighten-3">{{title2}}</h3>
 <ul class="collection">
     {% for post in postsSqlite %}
-    <li class="collection-item"><a href="/posts/details/sqlite/{{post.id}}">{{post.title}}</a></li>
+    <li class="collection-item">
+        <div><a href="/posts/details/sqlite/{{post.id}}">{{post.title}}</a><a href="/posts/delete/sqlite/{{post.id}}"
+                class="secondary-content"><i class="material-icons">delete</i></a></div>
+    </li>
     {% endfor %}
 </ul>
 <h3 class="center-align red lighten-3">{{title3}}</h3>
 <ul class="collection">
     {% for post in postsMongo %}
-    <li class="collection-item"><a href="/posts/details/mongo/{{post.id}}">{{post.title}}</a></li>
+    <li class="collection-item">
+        <div><a href="/posts/details/mongo/{{post.id}}">{{post.title}}</a><a href="/posts/delete/mongo/{{post.id}}"
+                class="secondary-content"><i class="material-icons">delete</i></a></div>
+    </li>
     {% endfor %}
 </ul>
+<a href="/posts/nuevo" class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">add</i></a>
 {% endblock %}

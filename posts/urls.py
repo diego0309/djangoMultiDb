@@ -10,4 +10,10 @@ urlpatterns = [
             views.detailsSqLite,  name='detailsSqLite'),
     re_path(r'details/mongo/(?P<id>\d+)',
             views.detailsMongo,  name='detailsMongo'),
+    re_path(r'delete/sqlite/(?P<id>\d+)',
+            views.deleteSqlite,  name='deleteSqLite'),
+    re_path(r'delete/mysql/(?P<id>\d+)',
+            views.deleteMysql,  name='deleteMysql'),
+    re_path(r'delete/mongo/(?P<id>\d+)',
+            views.deleteMongo,  name='deleteMongo'),
 ]
