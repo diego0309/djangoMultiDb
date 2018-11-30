@@ -57,15 +57,30 @@ def detailsMongo(request, id):
 def nuevo(request):
 
     if request.method == "POST":
+
         form = PostForm(request.POST)
         if form.is_valid():
             post = form.save(commit=False)
             post.created_At = datetime.now()
-            post.save(using='mongo')
-            context = {
-                'post': post
-            }
-            return redirect(detailsMongo, id=post.id)
+            if request.POST['bd'] == 'mongo':
+                post.save(using='mongo')
+                context = {
+                    'post': post
+                }
+                return redirect(detailsMongo, id=post.id)
+            if request.POST['bd'] == 'mysql':
+                post.save(using='ejemplo')
+                context = {
+                    'post': post
+                }
+                return redirect(detailsMySql, id=post.id)
+            if request.POST['bd'] == 'sqlite':
+                post.save()
+                context = {
+                    'post': post
+                }
+                return redirect(detailsSqLite, id=post.id)
+
     else:
         form = PostForm()
 
