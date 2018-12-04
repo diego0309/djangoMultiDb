@@ -7,6 +7,7 @@ class PostForm(forms.ModelForm):
         ('mysql', 'MySql'),
         ('sqlite', 'Sqlite'),
         ('mongo', 'MongoDb'),
+        ('cassandra', 'Cassandra')
     )
     bd = forms.ChoiceField(widget=forms.Select, choices=colors)
 

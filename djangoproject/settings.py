@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_cassandra_engine',
 ]
 
 MIDDLEWARE = [
@@ -84,8 +85,8 @@ DATABASES = {
         'NAME': 'djangoproject',
         'USER': 'root',
         'PASSWORD': '',
-        'HOST': 'localhost',
-        'PORT': ''
+        'HOST': '/opt/lampp/var/mysql/mysql.sock',
+        'PORT': '3306'
     },
     'mongo': {
         'ENGINE': 'djongo',
@@ -94,6 +95,19 @@ DATABASES = {
         'PASSWORD': '',
         'HOST': 'localhost',
         'PORT': 27017
+    },
+    'cassandra': {
+        'ENGINE': 'django_cassandra_engine',
+        'NAME': 'db',
+        'HOST': 'localhost',
+        'OPTIONS': {
+            'replication': {
+                'strategy_class': 'SimpleStrategy',
+                'replication_factor': 1
+           
+            }
+       
+        }
     }
 }
 

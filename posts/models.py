@@ -1,5 +1,14 @@
 from django.db import models
 from datetime import datetime
+import uuid
+from cassandra.cqlengine import columns
+from cassandra.cqlengine.models import Model
+ 
+class PostCassandra(Model):
+    id = columns.Integer(primary_key=True)
+    title = columns.Text(required=False)
+    body = columns.Text(required=False)
+    created_at = columns.DateTime(required=False, default=datetime.now)
 
 # Create your models here.
 

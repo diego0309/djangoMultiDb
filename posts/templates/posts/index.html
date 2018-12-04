@@ -28,5 +28,14 @@
     </li>
     {% endfor %}
 </ul>
+<h3 class="center-align red lighten-3">{{title4}}</h3>
+<ul class="collection">
+    {% for post in postsCassandra %}
+    <li class="collection-item">
+        <div><a href="/posts/details/cassandra/{{post.id}}">{{post.title}}</a><a href="/posts/delete/cassandra/{{post.id}}"
+                class="secondary-content"><i class="material-icons">delete</i></a></div>
+    </li>
+    {% endfor %}
+</ul>
 <a href="/posts/nuevo" class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">add</i></a>
 {% endblock %}
